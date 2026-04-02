@@ -41,7 +41,8 @@ worker:
     dynamic_batching: true
     ulysses_size: 1
     model:
-      model_path: Qwen/Qwen2.5-7B-Instruct
+      # model_path: Qwen/Qwen2.5-7B-Instruct
+      model_path: /mnt/disk1/weights/vlm/Qwen3-VL-8B-Instruct
       enable_gradient_checkpointing: true
       trust_remote_code: false
       freeze_vision_tower: false
