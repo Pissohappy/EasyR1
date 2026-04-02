@@ -23,10 +23,16 @@ REWARD_NAME = "math"
 REWARD_TYPE = "batch"
 
 
+# def format_reward(response: str) -> float:
+#     pattern = re.compile(r"<think>.*</think>.*\\boxed\{.*\}.*", re.DOTALL)
+#     format_match = re.fullmatch(pattern, response)
+#     return 1.0 if format_match else 0.0
+
 def format_reward(response: str) -> float:
-    pattern = re.compile(r"<think>.*</think>.*\\boxed\{.*\}.*", re.DOTALL)
-    format_match = re.fullmatch(pattern, response)
-    return 1.0 if format_match else 0.0
+      # 只检查是否有 \boxed{}，不要求 think 标签 Instruct模型学不到think的格式
+      pattern = re.compile(r".*\\boxed\{.*\}.*", re.DOTALL)
+      format_match = re.fullmatch(pattern, response)
+      return 1.0 if format_match else 0.0
 
 
 def accuracy_reward(response: str, ground_truth: str) -> float:

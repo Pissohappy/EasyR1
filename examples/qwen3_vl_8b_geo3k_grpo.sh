@@ -7,7 +7,7 @@ export TMPDIR=/mnt/disk1/szchen/ray_runtime
 export TEMP=/mnt/disk1/szchen/ray_runtime
 export TMP=/mnt/disk1/szchen/ray_runtime
 
-MODEL_PATH=/mnt/disk1/weights/vlm/Qwen3-VL-8B-Instruct  # replace it with your local file path
+MODEL_PATH=/mnt/disk1/weights/vlm/Qwen3-VL-8B-Instruct 
 CUDA_VISIBLE_DEVICES=4,5 python3 -m verl.trainer.main \
   config=examples/config.yaml \
   data.train_files=/mnt/disk1/data/rl/geometry3k/data/train-00000-of-00001.parquet \
